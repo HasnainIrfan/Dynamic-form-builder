@@ -395,28 +395,6 @@ export default function FormBuilder() {
     });
   };
 
-  /**
-   * Get border radius class based on the selected radius
-   */
-  const getBorderRadiusClass = (radius: string): string => {
-    switch (radius) {
-      case "none":
-        return "rounded-none";
-      case "sm":
-        return "rounded-sm";
-      case "md":
-        return "rounded-md";
-      case "lg":
-        return "rounded-lg";
-      case "xl":
-        return "rounded-xl";
-      case "full":
-        return "rounded-full";
-      default:
-        return "rounded-md";
-    }
-  };
-
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
       <div className="lg:col-span-9">
@@ -464,8 +442,7 @@ export default function FormBuilder() {
                         {formFields.length === 0 && (
                           <div className="text-center py-12 border-2 border-dashed rounded-lg bg-gray-50 dark:bg-gray-900">
                             <p className="text-muted-foreground">
-                              Drag and drop fields here or use the toolbar to
-                              add fields
+                              Use the toolbar to add fields
                             </p>
                           </div>
                         )}
