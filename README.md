@@ -47,7 +47,7 @@ A powerful and flexible Dynamic Form Builder built with **React.js**, featuring 
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/dynamic-form-builder.git
+git clone https://github.com/HasnainIrfan/Dynamic-form-builder
 
 # Navigate to the project directory
 cd dynamic-form-builder
