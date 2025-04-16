@@ -110,8 +110,8 @@ export default function FormDataDisplay({ data, onRowClick }: FormDataDisplayPro
       <CardContent className="p-4">
         {Object.keys(data).length === 0 ? (
           <div className="text-muted-foreground text-center py-12 border-2 border-dashed rounded-lg">
-            <p>No form data available.</p>
-            <p className="text-sm mt-2">Fill out the form in the Preview tab to see data here.</p>
+            <h6>No form data available.</h6>  
+            <h6 className="text-sm mt-2">Fill out the form in the Preview tab to see data here.</h6>
           </div>
         ) : (
           <ScrollArea className="h-[400px]">

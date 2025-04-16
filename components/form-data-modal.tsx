@@ -330,9 +330,9 @@ export default function FormDataModal({ isOpen, onClose, dataKey, value }: FormD
             {getValueIcon()}
             <div>
               <DialogTitle className="text-xl">{dataKey}</DialogTitle>
-              <p className="text-sm text-muted-foreground mt-1">
+              <h6 className="text-sm text-muted-foreground mt-1">
                 Type: <Badge variant="outline">{getValueType(value)}</Badge>
-              </p>
+              </h6>
             </div>
           </div>
           <Button variant="outline" size="sm" onClick={copyToClipboard}>

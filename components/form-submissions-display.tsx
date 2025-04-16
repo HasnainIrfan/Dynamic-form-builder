@@ -181,12 +181,12 @@ export default function FormSubmissionsDisplay({
       <CardContent className="p-4">
         {submissions.length === 0 ? (
           <div className="text-muted-foreground text-center py-12 border-2 border-dashed rounded-lg">
-            <p>No form submissions available.</p>
-            <p className="text-sm mt-2">Submit the form in the Preview tab to see data here.</p>
+            <h6>No form submissions available.</h6>
+            <h6 className="text-sm mt-2">Submit the form in the Preview tab to see data here.</h6>
           </div>
         ) : (
           <ScrollArea className="h-[600px]">
-            <div className="space-y-4">
+            <div className="space-y-4 p-1">
               {submissions.map((submission) => (
                 <Collapsible
                   key={submission.id}

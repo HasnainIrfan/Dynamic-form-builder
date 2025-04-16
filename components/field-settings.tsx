@@ -291,9 +291,9 @@ export default function FieldSettings({ field, onUpdate }: FieldSettingsProps) {
                       }
                       placeholder="Phone number pattern"
                     />
-                    <p className="text-xs text-muted-foreground mt-1">
+                    <h6 className="text-xs text-muted-foreground mt-1">
                       Default pattern validates international format: +XX XXXXXXXXXX
-                    </p>
+                    </h6>
                   </div>
                 )}
 

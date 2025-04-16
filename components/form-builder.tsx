@@ -441,9 +441,9 @@ export default function FormBuilder() {
                       >
                         {formFields.length === 0 && (
                           <div className="text-center py-12 border-2 border-dashed rounded-lg bg-gray-50 dark:bg-gray-900">
-                            <p className="text-muted-foreground">
+                            <h6 className="text-muted-foreground">
                               Use the toolbar to add fields
-                            </p>
+                            </h6>
                           </div>
                         )}
 
@@ -519,10 +519,10 @@ export default function FormBuilder() {
                                 {field.type === "section" && (
                                   <div className="mt-2 pl-6 border-l-2 border-gray-200 dark:border-gray-700">
                                     {(field as Section).fields.length === 0 ? (
-                                      <p className="text-sm text-muted-foreground py-2">
+                                      <h6 className="text-sm text-muted-foreground py-2">
                                         No fields in this section. Click + to
                                         add fields.
-                                      </p>
+                                      </h6>
                                     ) : (
                                       <div className="space-y-2">
                                         {(field as Section).fields.map(
@@ -704,9 +704,9 @@ export default function FormBuilder() {
                           onUpdate={updateField}
                         />
                       ) : (
-                        <p className="text-muted-foreground text-sm">
+                        <h6 className="text-muted-foreground text-sm">
                           Select a field to edit its properties
-                        </p>
+                        </h6>
                       )}
                     </ScrollArea>
                   </TabsContent>

@@ -192,11 +192,6 @@ export default function FormPreview({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    toast({
-      title: "Form Submitted",
-      description: "Your form has been submitted successfully.",
-    });
-
     const newErrors: Record<string, string> = {};
 
     // Validate all fields
@@ -226,11 +221,7 @@ export default function FormPreview({
 
     if (Object.keys(newErrors).length === 0) {
       // Form is valid, submit the data
-      // onSubmit(formData);
-      toast({
-        title: "Form Submitted",
-        description: "Your form has been submitted successfully.",
-      });
+      onSubmit(formData);
     } else {
       // Show validation error toast
       toast({
@@ -316,7 +307,7 @@ export default function FormPreview({
               }}
             />
             {errors[field.id] && (
-              <p className="text-sm text-red-500">{errors[field.id]}</p>
+              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
             )}
           </div>
         );
@@ -359,7 +350,7 @@ export default function FormPreview({
               </SelectContent>
             </Select>
             {errors[field.id] && (
-              <p className="text-sm text-red-500">{errors[field.id]}</p>
+              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
             )}
           </div>
         );
@@ -396,7 +387,7 @@ export default function FormPreview({
               ))}
             </RadioGroup>
             {errors[field.id] && (
-              <p className="text-sm text-red-500">{errors[field.id]}</p>
+              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
             )}
           </div>
         );
@@ -419,7 +410,7 @@ export default function FormPreview({
               </Label>
             </div>
             {errors[field.id] && (
-              <p className="text-sm text-red-500">{errors[field.id]}</p>
+              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
             )}
           </div>
         );
@@ -452,7 +443,7 @@ export default function FormPreview({
               }}
             />
             {errors[field.id] && (
-              <p className="text-sm text-red-500">{errors[field.id]}</p>
+              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
             )}
           </div>
         );
@@ -502,7 +493,7 @@ export default function FormPreview({
               </PopoverContent>
             </Popover>
             {errors[field.id] && (
-              <p className="text-sm text-red-500">{errors[field.id]}</p>
+              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
             )}
           </div>
         );
@@ -550,7 +541,7 @@ export default function FormPreview({
               </SelectContent>
             </Select>
             {errors[field.id] && (
-              <p className="text-sm text-red-500">{errors[field.id]}</p>
+              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
             )}
           </div>
         );
@@ -574,7 +565,7 @@ export default function FormPreview({
               textColor={formStyle.textColor}
             />
             {errors[field.id] && (
-              <p className="text-sm text-red-500">{errors[field.id]}</p>
+              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
             )}
           </div>
         );
@@ -607,7 +598,7 @@ export default function FormPreview({
               }}
             />
             {errors[field.id] && (
-              <p className="text-sm text-red-500">{errors[field.id]}</p>
+              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
             )}
           </div>
         );
@@ -662,7 +653,7 @@ export default function FormPreview({
           })}
         </div>
         {errors[section.id] && (
-          <p className="text-sm text-red-500 mt-2">{errors[section.id]}</p>
+          <h6 className="text-sm text-red-500 mt-2">{errors[section.id]}</h6>
         )}
       </Card>
     );
