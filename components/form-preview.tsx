@@ -27,9 +27,7 @@ import { cn } from "@/lib/utils";
 import { countries } from "@/lib/countries";
 import { PhoneInput } from "./phone-input";
 import { Card } from "@/components/ui/card";
-
-// Add toast notifications for form validation errors
-import { useToast } from "@/hooks/use-toast";
+import toast from "react-hot-toast";
 
 interface FormPreviewProps {
   fields: (FormField | Section)[];
@@ -46,7 +44,6 @@ export default function FormPreview({
   submittedData,
   style,
 }: FormPreviewProps) {
-  const { toast } = useToast();
   const [formData, setFormData] = useState<Record<string, any>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -224,13 +221,11 @@ export default function FormPreview({
       onSubmit(formData);
     } else {
       // Show validation error toast
-      toast({
-        title: "Validation Error",
-        description: `Please fix the ${Object.keys(newErrors).length} error${
+      toast.error(
+        `Please fix the ${Object.keys(newErrors).length} error${
           Object.keys(newErrors).length > 1 ? "s" : ""
-        } in the form.`,
-        variant: "destructive",
-      });
+        } in the form.`
+      );
     }
   };
 
@@ -307,7 +302,7 @@ export default function FormPreview({
               }}
             />
             {errors[field.id] && (
-              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
+              <p className="text-sm text-red-500">{errors[field.id]}</p>
             )}
           </div>
         );
@@ -350,7 +345,7 @@ export default function FormPreview({
               </SelectContent>
             </Select>
             {errors[field.id] && (
-              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
+              <p className="text-sm text-red-500">{errors[field.id]}</p>
             )}
           </div>
         );
@@ -387,7 +382,7 @@ export default function FormPreview({
               ))}
             </RadioGroup>
             {errors[field.id] && (
-              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
+              <p className="text-sm text-red-500">{errors[field.id]}</p>
             )}
           </div>
         );
@@ -410,7 +405,7 @@ export default function FormPreview({
               </Label>
             </div>
             {errors[field.id] && (
-              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
+              <p className="text-sm text-red-500">{errors[field.id]}</p>
             )}
           </div>
         );
@@ -443,7 +438,7 @@ export default function FormPreview({
               }}
             />
             {errors[field.id] && (
-              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
+              <p className="text-sm text-red-500">{errors[field.id]}</p>
             )}
           </div>
         );
@@ -493,7 +488,7 @@ export default function FormPreview({
               </PopoverContent>
             </Popover>
             {errors[field.id] && (
-              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
+              <p className="text-sm text-red-500">{errors[field.id]}</p>
             )}
           </div>
         );
@@ -541,7 +536,7 @@ export default function FormPreview({
               </SelectContent>
             </Select>
             {errors[field.id] && (
-              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
+              <p className="text-sm text-red-500">{errors[field.id]}</p>
             )}
           </div>
         );
@@ -565,7 +560,7 @@ export default function FormPreview({
               textColor={formStyle.textColor}
             />
             {errors[field.id] && (
-              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
+              <p className="text-sm text-red-500">{errors[field.id]}</p>
             )}
           </div>
         );
@@ -598,7 +593,7 @@ export default function FormPreview({
               }}
             />
             {errors[field.id] && (
-              <h6 className="text-sm text-red-500">{errors[field.id]}</h6>
+              <p className="text-sm text-red-500">{errors[field.id]}</p>
             )}
           </div>
         );
@@ -653,7 +648,7 @@ export default function FormPreview({
           })}
         </div>
         {errors[section.id] && (
-          <h6 className="text-sm text-red-500 mt-2">{errors[section.id]}</h6>
+          <p className="text-sm text-red-500 mt-2">{errors[section.id]}</p>
         )}
       </Card>
     );

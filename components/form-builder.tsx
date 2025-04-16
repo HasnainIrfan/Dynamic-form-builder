@@ -14,10 +14,9 @@ import {
   Settings,
   Eye,
   Database,
-  MoveVertical,
-  PlusCircle,
+  PlusCircle, MoveVertical
 } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import toast from "react-hot-toast";
 import FieldToolbar from "./field-toolbar";
 import FormPreview from "./form-preview";
 import FieldSettings from "./field-settings";
@@ -35,7 +34,6 @@ import type {
 import { Input } from "@/components/ui/input";
 
 export default function FormBuilder() {
-  const { toast } = useToast();
   const [formTitle, setFormTitle] = useState("Untitled Form");
   const [activeTab, setActiveTab] = useState("build");
   const [formFields, setFormFields] = useState<(FormField | Section)[]>([]);
@@ -92,10 +90,7 @@ export default function FormBuilder() {
     setFormFields([...formFields, newField]);
     setSelectedFieldId(newField.id);
 
-    toast({
-      title: "Field Added",
-      description: `Added a new ${type} field to your form.`,
-    });
+    toast.success(`Added a new ${type} field to your form.`);
   };
 
   /**
@@ -114,10 +109,7 @@ export default function FormBuilder() {
     setFormFields([...formFields, newSection]);
     setSelectedFieldId(newSection.id);
 
-    toast({
-      title: "Section Added",
-      description: "Added a new section to your form.",
-    });
+    toast.success("Added a new section to your form.");
   };
 
   /**
@@ -148,11 +140,7 @@ export default function FormBuilder() {
 
     setFormFields(updatedFields);
 
-    toast({
-      title: "Field Updated",
-      description: `Updated "${updatedField.label}" settings.`,
-      variant: "default",
-    });
+    toast.success(`Updated "${updatedField.label}" settings.`);
   };
 
   /**
@@ -206,11 +194,7 @@ export default function FormBuilder() {
       setSelectedFieldId(null);
     }
 
-    toast({
-      title: "Field Deleted",
-      description: `Deleted "${fieldName}" from your form.`,
-      variant: "destructive",
-    });
+    toast.error(`Deleted "${fieldName}" from your form.`);
   };
 
   /**
@@ -253,10 +237,7 @@ export default function FormBuilder() {
     // Switch to the "all" tab to show all submissions
     setActiveDataTab("all");
 
-    toast({
-      title: "Form Submitted Successfully",
-      description: "Your form data has been submitted and saved.",
-    });
+    toast.success("Form submitted successfully!");
   };
 
   /**
@@ -300,6 +281,8 @@ export default function FormBuilder() {
     setFormFields(updatedFields);
     setSelectedFieldId(newField.id);
     closeFieldMenu();
+
+    toast.success(`Added a new ${fieldType} field to the section.`);
   };
 
   /**
@@ -388,11 +371,7 @@ export default function FormBuilder() {
       setSelectedDataKey(null);
     }
 
-    toast({
-      title: "Submission Deleted",
-      description: "The form submission has been deleted.",
-      variant: "destructive",
-    });
+    toast.error("The form submission has been deleted.");
   };
 
   return (
